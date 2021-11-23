@@ -1,8 +1,6 @@
 ---
-
 layout: post
-title: Neural-Control Family: What Deep Learning + Control Enables in the Real World
-
+title: <em>Neural-Control</em> Family&#58; What Deep Learning + Control Enables in the Real World
 ---
 
 Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
