@@ -58,9 +58,9 @@ Apparently, I am not going to answer this big question in this post. However, I 
 </thead>
 <tbody>
 <tr>
-<td markdown="span">_Neural-Lander_</td>
-<td markdown="span">_Neural-Swarm_</td>
-<td markdown="span">_Neural-Fly_</td>
+<td style="text-align:center"><em>Neural-Lander</em></td>
+<td style="text-align:center"><em>Neural-Swarm</em></td>
+<td style="text-align:center"><em>Neural-Fly</em></td>
 </tr>
 </tbody>
 </table>       
