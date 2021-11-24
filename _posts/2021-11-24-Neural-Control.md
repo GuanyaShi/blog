@@ -10,7 +10,7 @@ While visiting Caltech, an aerospace director said:
 
 Such a concern is definitely not unfounded, because the aerospace industry has spent over 60 years making the airplane safer and safer such that modern airplane is one of the safest transportation methods. In a recent talk ["Can We Really Use Machine Learning in Safety Critical Systems?"](https://youtu.be/Wi8Y---ce28) at UCLA IPAM, Prof. Richard Murray discussed the number of deaths from transportation every $10^9$ miles in the U.S.:
 
-<table>
+<table width="100%" align="center">
 <colgroup>
 <col width="25%" />
 <col width="25%" />
@@ -27,7 +27,7 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 </thead>
 <tbody>
 <tr>
-<td>7</td>
+<td>7777</td>
 <td>0.1-0.4</td>
 <td>0.07</td>
 <td>?</td>
