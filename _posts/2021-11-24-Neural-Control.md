@@ -81,7 +81,7 @@ In _Neural-Swarm_, the residual dynamics is more involved, because it also depen
 
 <table width="80%" align="center">
 <td style="text-align:center" markdown="span">
-<img src='https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true?' width=100%>
+![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true)
 </td>
 </table>
 
