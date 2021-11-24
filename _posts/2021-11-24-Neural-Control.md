@@ -102,7 +102,9 @@ $$\forall z,z',\|h(z)-h(z')\|/\|z-z'\| \leq L(h).$$
 
 Basically, the Lipschitz threshold $L(\hat{g}) \leq \gamma$ requires some global smoothness property of the DNN $\hat{g}$. Note that this constraint is from control theory (i.e., we must jointly consider learning and control theory to have such a result), and necessary! Actually, modern DNN training itself is far away from satisfying $L(\hat{g}) \leq \gamma$: for our drone systems, $\gamma\approx16$, but a 8-layer DNN without Lipschitz constrained training yields $L(\hat{g}) > 8000$, which led to a drone crash in our experiments. In practice, we use spectral normalization to ensure that $L(\hat{g}) \leq 16$. With the spectrally normalized DNN, we can achieve the following agile manuever super close to the ground:
 
-https://user-images.githubusercontent.com/26674297/143175711-6f42ea68-0054-46ca-92e8-42d4e2281f4b.mp4
+<table width="100%" align="center">
+<td><img src='images/1.mp4' width=100%></td>
+</table>
 
 Another example to unify learning and control theory is in _Neural-Fly_, where we propose a new framework called _Meta-Adaptive Control_. Recall that in _Neural-Fly_ the residual dynamics $g(x_t,u_t,c_t)$ depends on the environmental condition $c_t$. The idea is that we decompose $g$ into two parts:
 
@@ -114,7 +116,9 @@ where $\phi$ is a representation shared by all environments, and $a$ is an envir
 
 The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,\mathcal{N}_1,\cdots,\mathcal{N}_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such an invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing:
 
-![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)
+<table width="100%" align="center">
+<td markdown="span">![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)</td>
+</table> 
 
 Another type of invariance is _domain invariance_. Recall that in _Neural-Fly_ we want to learn a representation $\phi$ that is shared by all environment. Therefore, we developed a domain adversarially invariant meta-learning algorithm to learn $\phi$ such that $\phi$ does not directly contain domain information. Interestingly, we found that standard meta-learning without such a domain invariance reguarlization tends to overfit, due to the underlying domain shift problem.
 
