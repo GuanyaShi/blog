@@ -18,7 +18,7 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 <col width="25%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr class="header" style="border-bottom:10px solid black">
 <td>Human-driven car</td>
 <td>Buses and trains</td>
 <td>Airplane</td>
@@ -27,17 +27,13 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 </thead>
 <tbody>
 <tr>
-<td>7777</td>
+<td>8888</td>
 <td>0.1-0.4</td>
 <td>0.07</td>
 <td>?</td>
 </tr>
 </tbody>
 </table>        
-
-<!-- | Human-driven car | Buses and trains | Airplane | Self-driving car |
-| ---------------- | ---------------- | -------- | ---------------- |
-| 7                | 0.1-0.4          | 0.07     | **?**            | -->
 
 It seems that if I plan to travel from LA to San Francisco, on average, taking a flight is 100 times safer than driving myself (also faster). Moreoever, the above table is begging the following question: _For deep-learning-based autonomous systems, how do we ensure a comparable level of safety to human or classic methods while maintaining advantages from deep learning?_ 
 
@@ -47,9 +43,27 @@ Apparently, I am not going to answer this big question in this post. However, I 
 | --- | --- | --- | 
 | [_Neural-Lander_](https://arxiv.org/abs/1811.08027) | [_Neural-Swarm_](https://arxiv.org/abs/2012.05457) | [_Neural-Fly_](https://arxiv.org/pdf/2103.01932) | -->
 
-| ![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true =490x) | ![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true) | ![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true) |
-| --- | --- | --- | 
-| [_Neural-Lander_](https://arxiv.org/abs/1811.08027) | [_Neural-Swarm_](https://arxiv.org/abs/2012.05457) | [_Neural-Fly_](https://arxiv.org/pdf/2103.01932) |
+<table width="100%" align="center">
+<colgroup>
+<col width="33.3%" />
+<col width="33.3%" />
+<col width="33.3%" />
+</colgroup>
+<thead>
+<tr class="header">
+<td markdown="span">![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true)</td>
+<td markdown="span">![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)</td>
+<td markdown="span">![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td markdown="span">_Neural-Lander_</td>
+<td markdown="span">_Neural-Swarm_</td>
+<td markdown="span">_Neural-Fly_</td>
+</tr>
+</tbody>
+</table>       
 
 These novel capabilities are very exciting, because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise manuever in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog I will try to explain the methodology, and in particular, I aim to discuss three key reflections when applying deep learning in autonomous systems:
 * Having prior physics matters.
