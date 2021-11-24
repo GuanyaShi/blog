@@ -10,9 +10,13 @@ While visiting Caltech, an aerospace director said:
 
 Such a concern is definitely not unfounded, because the aerospace industry has spent over 60 years making the airplane safer and safer such that modern airplane is one of the safest transportation methods. In a recent talk ["Can We Really Use Machine Learning in Safety Critical Systems?"](https://youtu.be/Wi8Y---ce28) at UCLA IPAM, Prof. Richard Murray discussed the number of deaths from transportation every $10^9$ miles in the U.S.:
 
-| Human-driven car | Buses and trains | Airplane | Self-driving car |
+Human-driven car | Buses and trains | Airplane | Self-driving car 
+---------------- | ---------------- | -------- | ---------------- 
+7                | 0.1-0.4          | 0.07     | **?**            
+
+<!-- | Human-driven car | Buses and trains | Airplane | Self-driving car |
 | ---------------- | ---------------- | -------- | ---------------- |
-| 7                | 0.1-0.4          | 0.07     | **?**            |
+| 7                | 0.1-0.4          | 0.07     | **?**            | -->
 
 It seems that if I plan to travel from LA to San Francisco, on average, taking a flight is 100 times safer than driving myself (also faster). Moreoever, the above table is begging the following question: _For deep-learning-based autonomous systems, how do we ensure a comparable level of safety to human or classic methods while maintaining advantages from deep learning?_ 
 
