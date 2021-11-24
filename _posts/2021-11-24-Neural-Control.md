@@ -79,11 +79,24 @@ For example, in _Neural-Lander_, $f$ is the classic rigid body dynamics for a dr
 
 In _Neural-Swarm_, the residual dynamics is more involved, because it also depends on the drone's neighbors: $g_t=g(x_t,u_t,N_1,\cdots,N_K)$, where $N_k$ is a set of the type-$k$ neighbors. More specifically, $g_t$ is the aerodynamic interaction between different types of robots in a swarm. In _Neural-Fly_, the residual part depends on the unknown wind condition $c_t$: $g_t=g(x_t,u_t,c_t)$. External wind conditions have a significant influence on the drone dynamics, as visualized by the following picture (a drone is flying in front of the Caltech Real Weather Wind Tunnel):
 
-<table width="80%" align="center">
+<table width="50%" align="center">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
 <td align="center" markdown="span">
 ![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true)
 </td>
-</table>
+</tr>
+</thead>
+</table>        
+
+<!-- <table width="80%" align="center">
+<td align="center" markdown="span">
+![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true)
+</td>
+</table> -->
 
 Since the nominal dynamics $f$ is highly structured and easy to model using classic approaches, there is no reason to use deep learning to model it. The high-level idea of the _Neural-Control_ Family is, we use some deep learning methods to model the residual dynamics $g_t$, and then leverage the structure in the prior physics to design a hybrid controller:
 
