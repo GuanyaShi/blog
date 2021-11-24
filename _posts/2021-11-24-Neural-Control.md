@@ -39,10 +39,6 @@ It seems that if I plan to travel from LA to San Francisco, on average, taking a
 
 Apparently, I am not going to answer this big question in this post. However, I would like to present a concrete example called **_Neural-Control_ Family**, where deep-learning-based autonomous systems not only achieve exciting new capabilities and better performance than classic methods, but also enjoy verifiable guarantees for safety and robustness. Here are some demonstrations, where all robots are running deep neural networks onboard in real time:
 
-<!-- | ![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true =490x) | ![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true) | ![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true) |
-| --- | --- | --- | 
-| [_Neural-Lander_](https://arxiv.org/abs/1811.08027) | [_Neural-Swarm_](https://arxiv.org/abs/2012.05457) | [_Neural-Fly_](https://arxiv.org/pdf/2103.01932) | -->
-
 <table width="100%" align="center">
 <colgroup>
 <col width="33.3%" />
@@ -84,7 +80,7 @@ For example, in _Neural-Lander_, $f$ is the classic rigid body dynamics for a dr
 In _Neural-Swarm_, the residual dynamics is more involved, because it also depends on the drone's neighbors: $g_t=g(x_t,u_t,N_1,\cdots,N_K)$, where $N_k$ is a set of the type-$k$ neighbors. More specifically, $g_t$ is the aerodynamic interaction between different types of robots in a swarm. In _Neural-Fly_, the residual part depends on the unknown wind condition $c_t$: $g_t=g(x_t,u_t,c_t)$. External wind conditions have a significant influence on the drone dynamics, as visualized by the following picture (a drone is flying in front of the Caltech Real Weather Wind Tunnel):
 
 <table width="80%" align="center">
-<td style="text-align:center">
+<td style="text-align:center" markdown="span">
 <img src='https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true?' width=100%>
 </td>
 </table>
@@ -149,6 +145,6 @@ There are many interesting future directions. In particular, note that the afore
 
 * _Neural-Lander_ [[ICRA'19 paper](https://arxiv.org/abs/1811.08027)]
 * _Neural-Swarm_ [[T-RO paper](https://arxiv.org/abs/2012.05457)]
-* _Neural-Fly_ (under review) [[prelimary version](https://arxiv.org/pdf/2103.01932)]
+* _Neural-Fly_ (under review) [[preliminary version](https://arxiv.org/pdf/2103.01932)]
 * _Online Meta-Adaptive Control_ [[NeurIPS'21 paper](https://arxiv.org/abs/2106.06098)]
 * _Safe Exploration_ [[L4DC'20 paper](https://arxiv.org/pdf/1906.05819)][[RA-L paper](https://arxiv.org/abs/2005.04374)]
