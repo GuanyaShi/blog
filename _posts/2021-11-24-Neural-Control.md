@@ -10,9 +10,30 @@ While visiting Caltech, an aerospace director said:
 
 Such a concern is definitely not unfounded, because the aerospace industry has spent over 60 years making the airplane safer and safer such that modern airplane is one of the safest transportation methods. In a recent talk ["Can We Really Use Machine Learning in Safety Critical Systems?"](https://youtu.be/Wi8Y---ce28) at UCLA IPAM, Prof. Richard Murray discussed the number of deaths from transportation every $10^9$ miles in the U.S.:
 
-Human-driven car | Buses and trains | Airplane | Self-driving car 
----------------- | ---------------- | -------- | ---------------- 
-7                | 0.1-0.4          | 0.07     | **?**            
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<td>Human-driven car</td>
+<td>Buses and trains</td>
+<td>Airplane</td>
+<td>Self-driving car</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7</td>
+<td>0.1-0.4</td>
+<td>0.07</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>        
 
 <!-- | Human-driven car | Buses and trains | Airplane | Self-driving car |
 | ---------------- | ---------------- | -------- | ---------------- |
@@ -21,6 +42,10 @@ Human-driven car | Buses and trains | Airplane | Self-driving car
 It seems that if I plan to travel from LA to San Francisco, on average, taking a flight is 100 times safer than driving myself (also faster). Moreoever, the above table is begging the following question: _For deep-learning-based autonomous systems, how do we ensure a comparable level of safety to human or classic methods while maintaining advantages from deep learning?_ 
 
 Apparently, I am not going to answer this big question in this post. However, I would like to present a concrete example called **_Neural-Control_ Family**, where deep-learning-based autonomous systems not only achieve exciting new capabilities and better performance than classic methods, but also enjoy verifiable guarantees for safety and robustness. Here are some demonstrations, where all robots are running deep neural networks onboard in real time:
+
+<!-- | ![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true =490x) | ![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true) | ![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true) |
+| --- | --- | --- | 
+| [_Neural-Lander_](https://arxiv.org/abs/1811.08027) | [_Neural-Swarm_](https://arxiv.org/abs/2012.05457) | [_Neural-Fly_](https://arxiv.org/pdf/2103.01932) | -->
 
 | ![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true =490x) | ![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true) | ![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true) |
 | --- | --- | --- | 
