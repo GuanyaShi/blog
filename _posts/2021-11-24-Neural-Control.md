@@ -18,7 +18,7 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 <col width="25%" />
 </colgroup>
 <thead>
-<tr class="header" style="border-bottom:10px solid black">
+<tr class="header" style="border-top:1px solid black">
 <td>Human-driven car</td>
 <td>Buses and trains</td>
 <td>Airplane</td>
@@ -26,8 +26,8 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>8888</td>
+<tr style="border-bottom:1px solid black">
+<td>7</td>
 <td>0.1-0.4</td>
 <td>0.07</td>
 <td>?</td>
