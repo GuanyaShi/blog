@@ -39,7 +39,7 @@ Based on this analysis, if I travel from LA to San Francisco, on average, taking
 
 To make progress on this challenge, I would like to present a class of learning-based control methods called **_Neural-Control_ Family**, where deep-learning-based autonomous systems not only achieve exciting new capabilities and better performance than classic methods but also enjoy formal guarantees for safety and robustness. Here are some demonstrations, where all robots are running deep neural networks onboard in real-time:
 
-<table width="100%" align="center" cellpadding="20">
+<!-- <table width="100%" align="center" cellpadding="20">
 <colgroup>
 <col width="50%" />
 <col width="50%" />
@@ -56,7 +56,29 @@ To make progress on this challenge, I would like to present a class of learning-
 <td style="text-align:center"><em>Neural-Swarm</em></td>
 </tr>
 </tbody>
+</table> -->
+
+<center>
+<table width="70%" align="center">
+<td align="center" markdown="span">
+![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true)
+</td>
 </table>
+<table width="70%" align="center">
+<td style="text-align:center"><em>Neural-Lander</em></td>
+</table>  
+</center>
+
+<center>
+<table width="70%" align="center">
+<td align="center" markdown="span">
+![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)
+</td>
+</table>
+<table width="70%" align="center">
+<td style="text-align:center"><em>Neural-Swarm</em></td>
+</table>  
+</center> 
 
 <center>
 <table width="70%" align="center">
@@ -84,7 +106,7 @@ $$x_{t+1} = \underbrace{f(x_t,u_t)}_{\text{nominal dynamics}} + \underbrace{g_t}
 where $x$ is the state and $u$ is the control input. Most importantly, the nominal dynamics $f$ refers to the easy-to-model part from prior physics, while the residual dynamics $g_t$ (potentially time-variant) refers to the hard-to-model part. As shown in the following image, in different systems $g_t$ could have different structures.
 
 <center>
-<table width="80%" align="center">
+<table width="90%" align="center">
 <td align="center" markdown="span">
 ![figure_g](https://github.com/GuanyaShi/blog/blob/master/images/blog.png?raw=true)
 </td>
@@ -114,7 +136,7 @@ $$\forall z,z',\|h(z)-h(z')\|/\|z-z'\| \leq L(h).$$
 Basically, the Lipschitz threshold $L(\hat{g}) \leq \gamma$ requires some global smoothness property of the DNN $\hat{g}$. Note that this constraint is from control theory (i.e., we must jointly consider learning and control theory to have such a result), and necessary! Actually, modern DNN training itself is far away from satisfying $L(\hat{g}) \leq \gamma$: for our drone systems, $\gamma\approx16$, but an 8-layer DNN without Lipschitz constrained training yields $L(\hat{g}) > 8000$, which led to a drone crash in our experiments. In practice, we use spectral normalization to ensure that $L(\hat{g}) \leq 16$. With the spectrally normalized DNN, we can achieve the following agile maneuver super close to the ground:
 
 <center>
-<table width="60%" align="center">
+<table width="70%" align="center">
 <td align="center" markdown="span">
 ![super_close](https://github.com/GuanyaShi/blog/blob/master/images/1.gif?raw=true)
 </td>
@@ -129,12 +151,12 @@ where $\phi$ is a representation shared by all environments, and $a$ is an envir
 
 ## Encoding invariance to deep learning really helps
 
-The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,N_1,\cdots,N_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing:
+The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,N_1,\cdots,N_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing. The following video shows the data collection process, where we only used 1-3 robots:
 
 <center>
-<table width="60%" align="center">
+<table width="70%" align="center">
 <td align="center" markdown="span">
-![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)
+![neural_swarm_data_collection](https://github.com/GuanyaShi/blog/blob/master/images/data_collection_2x2.gif?raw=true)
 </td>
 </table>        
 </center>
@@ -152,7 +174,7 @@ _Neural-Control_ Family presents a class of deep-learning-based control methods 
 * Control meets learning: combining learning and control theory is necessary.
 * Encoding invariance to deep learning really helps.
 
-There are many interesting future directions. In particular, note that the aforementioned prior physics, invariance, and control-theoretic regularization are all directly from physics and relatively easy to discover. For more complex systems such as vision-based control and human-robot interaction, we need principled _neuralsymbolic learning_ methods to discover those structures from data.  
+There are many interesting future directions. In particular, note that the aforementioned prior physics, invariance, and control-theoretic regularization are all directly from physics and relatively easy to discover. For more complex systems such as vision-based control and human-robot interaction, we need principled [_Neurosymbolic Learning_](http://www.neurosymbolic.org/) methods to discover those structures from data.  
 
 ## References
 
@@ -161,3 +183,6 @@ There are many interesting future directions. In particular, note that the afore
 * _Neural-Fly_ (under review) [[preliminary version](https://arxiv.org/pdf/2103.01932)]
 * _Online Meta-Adaptive Control_ [[NeurIPS'21 paper](https://arxiv.org/abs/2106.06098)]
 * _Safe Exploration_ [[L4DC'20 paper](https://arxiv.org/pdf/1906.05819)][[RA-L paper](https://arxiv.org/abs/2005.04374)]
+
+## Acknowledgements
+Thanks to Prof. Yisong Yue for feedback on this post.
