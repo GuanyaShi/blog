@@ -35,31 +35,41 @@ Such a concern is definitely not unfounded, because the aerospace industry has s
 </tbody>
 </table>        
 
-It seems that if I plan to travel from LA to San Francisco, on average, taking a flight is 100 times safer than driving myself (also faster). Moreoever, the above table is begging the following question: _For deep-learning-based autonomous systems, how do we ensure a comparable level of safety to human or classic methods while maintaining advantages from deep learning?_ 
+Based on this analysis, if I travel from LA to San Francisco, on average, taking a flight is 100 times safer than driving myself (also faster). Moreoever, the above table is begging the following question: _For deep-learning-based autonomous systems, how do we ensure a comparable level of safety to human or classic methods while maintaining advantages from deep learning?_ 
 
-Apparently, I am not going to answer this big question in this post. However, I would like to present a concrete example called **_Neural-Control_ Family**, where deep-learning-based autonomous systems not only achieve exciting new capabilities and better performance than classic methods, but also enjoy verifiable guarantees for safety and robustness. Here are some demonstrations, where all robots are running deep neural networks onboard in real time:
+To make progress on this challenge, I would like to present a class of learning-based control methods called **_Neural-Control_ Family**, where deep-learning-based autonomous systems not only achieve exciting new capabilities and better performance than classic methods, but also enjoy formal guarantees for safety and robustness. Here are some demonstrations, where all robots are running deep neural networks onboard in real time:
 
-<table width="100%" align="center">
+<table width="100%" align="center" cellpadding="20">
 <colgroup>
-<col width="33.3%" />
-<col width="33.3%" />
-<col width="33.3%" />
+<col width="50%" />
+<col width="50%" />
 </colgroup>
 <thead>
 <tr class="header">
 <td markdown="span">![neural_lander](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_lander.gif?raw=true)</td>
 <td markdown="span">![neural_swarm](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_swarm.gif?raw=true)</td>
-<td markdown="span">![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)</td>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center"><em>Neural-Lander</em></td>
 <td style="text-align:center"><em>Neural-Swarm</em></td>
-<td style="text-align:center"><em>Neural-Fly</em></td>
 </tr>
 </tbody>
-</table>       
+
+<center>
+<table width="70%" align="center">
+<tr>
+<td align="center" markdown="span">
+![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)</td>
+</td>
+</tr>
+<tr>
+<td style="text-align:center"><em>Neural-Fly</em></td>
+</tr>
+</table>        
+</center></table>       
+
 
 These novel capabilities are very exciting, because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise manuever in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog I will try to explain the methodology, and in particular, I aim to discuss three key reflections when applying deep learning in autonomous systems:
 * Having prior physics matters.
@@ -121,7 +131,7 @@ where $\phi$ is a representation shared by all environments, and $a$ is an envir
 
 ## Encoding invariance to deep learning really helps
 
-The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,\mathcal{N}_1,\cdots,\mathcal{N}_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such an invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing:
+The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,N_1,\cdots,N_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such an invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing:
 
 <center>
 <table width="60%" align="center">
