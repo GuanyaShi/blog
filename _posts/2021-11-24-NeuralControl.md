@@ -65,7 +65,7 @@ To make progress on this challenge, I would like to present a class of learning-
 </td>
 </table>
 <table width="70%" align="center">
-<td markdown="span">[_Neural-Lander_](https://arxiv.org/abs/1811.08027)</td>
+<td align="center" markdown="span">[_Neural-Lander_](https://arxiv.org/abs/1811.08027)</td>
 </table>  
 </center>
 
@@ -76,7 +76,7 @@ To make progress on this challenge, I would like to present a class of learning-
 </td>
 </table>
 <table width="70%" align="center">
-<td style="text-align:center"><em>Neural-Swarm</em></td>
+<td align="center" markdown="span">[_Neural-Swarm_](https://arxiv.org/abs/2012.05457)</td>
 </table>  
 </center> 
 
@@ -126,7 +126,7 @@ where $\hat{g}_t$ is the estimation of $g_t$ from some machine learning method. 
 1. The form of $\pi_n$ and $\pi_l$ highly relies on the structure in the prior physics. It is also why we can translate the learning performance (i.e., how close is $\hat{g}_t$ to $g_t$) to the control performance in the following section.
 2. From both computational and statistical standpoints, having prior physics significantly makes the learning algorithm more efficient. For instance, in _Neural-Lander_, we found that to achieve the same training loss, learning the full dynamics $f+g$ requires 1 hour of flight data while learning the residual dynamics $g$ only needs 5 minutes! 
 
-## Control meets learning: combining learning and control theory is necessary
+## [Control meets learning](https://sites.google.com/view/control-meets-learning): combining learning and control theory is necessary
 
 The second important principle is that, to safely deploy deep learning in autonomous systems, it is necessary to study learning and control theory in a unified framework. More concretely, deep learning is more or less like a powerful yet obscure blackbox, so we must regularize and verify its behavior in high-stakes problems. 
 
@@ -147,7 +147,7 @@ Another example to unify learning and control theory is in _Neural-Fly_, where w
 
 $$g(x_t,u_t,c_t) \approx \phi(x_t,u_t) a(c_t),$$
 
-where $\phi$ is a representation shared by all environments, and $a$ is an environment-specific linear coefficient. We learn $\phi$ using meta-learning, and adapt $a$ using adaptive control. Namely, adaptive control will adapt $a_t$ in real-time based on the learned representation $\phi$. The reason behind is that adaptive control is super good at handling (linear) parametric uncertainty, so we use meta-learning to provide a reasonable representation to "translate" the nonparametric uncertainty to be parametric. 
+where $\phi$ is a representation shared by all environments, and $a$ is an environment-specific linear coefficient. We learn $\phi$ using meta-learning, and adapt $a$ using adaptive control. Namely, adaptive control will adapt $a_t$ in real-time based on the learned representation $\phi$. The reason behind is that adaptive control is super good at handling (linear) parametric uncertainty, so we use meta-learning to provide a reasonable representation to "translate" the nonparametric uncertainty to be parametric. See some theoretical analysis for _Online_Meta-Adaptive Control_ in our [NeurIPS'21 paper](https://arxiv.org/abs/2106.06098).
 
 ## Encoding invariance to deep learning really helps
 
@@ -165,7 +165,7 @@ Another type of invariance is _domain invariance_. Recall that in _Neural-Fly_ w
 
 ## Aside: safe exploration in dynamical systems
 
-In _Neural-Lander/Swarm/Fly_, we all need either a human expert or a well-tuned program under supervision for data collection. However, in many safety-critical tasks such as space exploration, there is no expert collecting data. Naturally, here comes a question: Can we safely collect data without humans in the loop, and eventually achieve an aggressive control goal? For example, landing the drone faster and faster. To address this challenge, we deployed distributionally robust learning together with optimal control. The key idea is that robust learning quantifies the uncertainty under domain shift, and optimal control ensures the worst-case safety.
+In _Neural-Lander/Swarm/Fly_, we all need either a human expert or a well-tuned program under supervision for data collection. However, in many safety-critical tasks such as space exploration, there is no expert collecting data. Naturally, here comes a question: Can we safely collect data without humans in the loop, and eventually achieve an aggressive control goal? For example, landing the drone faster and faster. To address this challenge, we deployed distributionally robust learning together with optimal control. The key idea is that robust learning quantifies the uncertainty under domain shift, and optimal control ensures the worst-case safety. See more details in the [deterministic](https://arxiv.org/pdf/1906.05819) and [stochastic](https://arxiv.org/abs/2005.04374) settings.
 
 ## Closing Remarks
 
