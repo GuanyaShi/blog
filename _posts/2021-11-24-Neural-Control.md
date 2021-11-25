@@ -1,6 +1,6 @@
 ---
 layout: post
-title: <em>Neural-Control</em> Family&#58; What Deep Learning + Control Enables in the Real World
+title: Neural-Control Family&#58; What Deep Learning + Control Enables in the Real World
 ---
 
 With the unprecedented advances of modern machine learning comes the tantalizing possibility of smart data-driven autonomous systems across a broad range of real-world settings. However, is machine learning (especially deep learning) really ready to be deployed in safety-critical systems?
