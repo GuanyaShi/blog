@@ -65,9 +65,7 @@ To make progress on this challenge, I would like to present a class of learning-
 </td>
 </table>
 <table width="70%" align="center">
-<td align="center" markdown="span">
-![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)
-</td>
+<td style="text-align:center"><em>Neural-Fly</em></td>
 </table>  
 </center>  
   
