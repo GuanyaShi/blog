@@ -56,27 +56,21 @@ To make progress on this challenge, I would like to present a class of learning-
 <td style="text-align:center"><em>Neural-Swarm</em></td>
 </tr>
 </tbody>
+</table>
 
 <center>
 <table width="70%" align="center">
-<tr>
 <td align="center" markdown="span">
-<p align="center">
 ![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)
-</p>
 </td>
-</tr>
-<tr>
-<td style="text-align:center">
-<p align="center">
-<em>Neural-Fly</em>
-</p>
+</table>
+<table width="70%" align="center">
+<td align="center" markdown="span">
+![neural_fly](https://github.com/GuanyaShi/GuanyaShi.github.io/blob/master/neural_fly.gif?raw=true)
 </td>
-</tr>
-</table>        
-</center>       
-
-
+</table>  
+</center>  
+  
 These novel capabilities are very exciting, because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise manuever in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog I will try to explain the methodology, and in particular, I aim to discuss three key reflections when applying deep learning in autonomous systems:
 * Having prior physics matters.
 * Control meets learning: combining learning and control theory is necessary.
@@ -94,7 +88,7 @@ where $x$ is the state and $u$ is the control input. Most importantly, the nomin
 <center>
 <table width="80%" align="center">
 <td align="center" markdown="span">
-![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/blog.png?raw=true)
+![figure_g](https://github.com/GuanyaShi/blog/blob/master/images/blog.png?raw=true)
 </td>
 </table>        
 </center>  
