@@ -68,7 +68,7 @@ To make progress on this challenge, I would like to present a class of learning-
 <td style="text-align:center"><em>Neural-Fly</em></td>
 </tr>
 </table>        
-</center></table>       
+</center>       
 
 
 These novel capabilities are very exciting, because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise manuever in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog I will try to explain the methodology, and in particular, I aim to discuss three key reflections when applying deep learning in autonomous systems:
