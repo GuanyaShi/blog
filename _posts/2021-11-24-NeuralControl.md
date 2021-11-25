@@ -65,7 +65,7 @@ To make progress on this challenge, I would like to present a class of learning-
 </td>
 </table>
 <table width="70%" align="center">
-<td style="text-align:center"><em>Neural-Lander</em></td>
+<td markdown="span">[_Neural-Lander_](https://arxiv.org/abs/1811.08027)</td>
 </table>  
 </center>
 
@@ -91,7 +91,7 @@ To make progress on this challenge, I would like to present a class of learning-
 </table>  
 </center>  
   
-These novel capabilities are very exciting because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise maneuver in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog, I will try to explain the methodology, and in particular, I aim to discuss three key reflections when applying deep learning in autonomous systems:
+These novel capabilities are very exciting because they haven't been achieved by either pure learning or control methods. For example, the close-proximity swarm flight (the minimum distance is only 24cm) in _Neural-Swarm_, and agile and precise maneuver in time-variant wind conditions in _Neural-Fly_. Behind these "magics", in this blog, I will try to explain the methodology, and in particular, I aim to discuss three key principles when applying deep learning in autonomous systems:
 * Having prior physics matters.
 * Control meets learning: combining learning and control theory is necessary.
 * Encoding invariance to deep learning really helps.
@@ -128,7 +128,7 @@ where $\hat{g}_t$ is the estimation of $g_t$ from some machine learning method. 
 
 ## Control meets learning: combining learning and control theory is necessary
 
-The second important reflection is that, to safely deploy deep learning in autonomous systems, it is necessary to study learning and control theory in a unified framework. More concretely, deep learning is more or less like a powerful yet obscure blackbox, so we must regularize and verify its behavior in high-stakes problems. 
+The second important principle is that, to safely deploy deep learning in autonomous systems, it is necessary to study learning and control theory in a unified framework. More concretely, deep learning is more or less like a powerful yet obscure blackbox, so we must regularize and verify its behavior in high-stakes problems. 
 
 In _Neural-Lander_, we use a deep neural network $\hat{g}(x_t,u_t)$ to approximate the residual dynamics $g$. We proved that if the Lipschitz constant of the DNN is smaller than some system-dependent threshold $\gamma$, the learning-based controller is exponentially stable (i.e., the trajectory tracking error exponentially converges to some small error ball whose size is related to the learning performance). Recall that for a function $h(z)$, the Lipschitz constant $L(h)$ is defined as the smallest value such that 
 $$\forall z,z',\|h(z)-h(z')\|/\|z-z'\| \leq L(h).$$
@@ -151,7 +151,7 @@ where $\phi$ is a representation shared by all environments, and $a$ is an envir
 
 ## Encoding invariance to deep learning really helps
 
-The last reflection I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,N_1,\cdots,N_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing. The following video shows the data collection process, where we only used 1-3 robots:
+The last principle I would like to share is the importance of encoding invariance to deep learning. Real-world autonomous systems have a lot of nice structures, which should be leveraged in deep learning. In _Neural-Swarm_, we encoded _heterogeneous permutation invariance_ when learning the residual dynamics $g(x_t,u_t,N_1,\cdots,N_K)$. For example, $h(x_1,x_2,y_1,y_2)=\sin(x_1x_2)+\cos(y_1+y_2)$ is a heterogeneous-permutation-invariant function, because switching $x_1,x_2$ or $y_1,y_2$ doesn't change the function output but switching $x_1,y_1$ does. It turns out that encoding such invariance is crucial and allows us to generalize from 1-3 robots in training to 5-16 robots in testing. The following video shows the data collection process, where we only used 1-3 robots:
 
 <center>
 <table width="70%" align="center">
@@ -169,7 +169,7 @@ In _Neural-Lander/Swarm/Fly_, we all need either a human expert or a well-tuned 
 
 ## Closing Remarks
 
-_Neural-Control_ Family presents a class of deep-learning-based control methods for real-world systems with formal guarantees and new capabilities. Hopefully, I convinced you that there are three important reflections:
+_Neural-Control_ Family presents a class of deep-learning-based control methods for real-world systems with formal guarantees and new capabilities. Hopefully, I convinced you that there are three important principles:
 * Having prior physics matters.
 * Control meets learning: combining learning and control theory is necessary.
 * Encoding invariance to deep learning really helps.
