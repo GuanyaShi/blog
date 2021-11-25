@@ -83,23 +83,23 @@ A real-world dynamical system can be described as
 
 $$x_{t+1} = \underbrace{f(x_t,u_t)}_{\text{nominal dynamics}} + \underbrace{g_t}_{\text{residual dynamics}} + \underbrace{w_t}_{\text{disturbance}},$$
 
-where $x$ is the state and $u$ is the control input. Most importantly, the nominal dynamics $f$ refers to the easy-to-model part from prior physics, while the residual dynamics $g_t$ (potentially time-variant) refers to the hard-to-model part.
-
-For example, in _Neural-Lander_, $f$ is the classic rigid body dynamics for a drone flying in the free space, and $f$ could be easily modeled by standard bench tests. However, $g_t=g(x_t,u_t)$ is the complex aerodynamic effect between the drone and the ground, which is nonlinear, nonstationary, and very hard to model using standard system identification approaches.
-
-In _Neural-Swarm_, the residual dynamics is more involved, because it also depends on the drone's neighbors: $g_t=g(x_t,u_t,N_1,\cdots,N_K)$, where $N_k$ is a set of the type-$k$ neighbors. More specifically, $g_t$ is the aerodynamic interaction between different types of robots in a swarm. In _Neural-Fly_, the residual part depends on the unknown wind condition $c_t$: $g_t=g(x_t,u_t,c_t)$. External wind conditions have a significant influence on the drone dynamics, as visualized by the following picture (a drone is flying in front of the Caltech Real Weather Wind Tunnel):
+where $x$ is the state and $u$ is the control input. Most importantly, the nominal dynamics $f$ refers to the easy-to-model part from prior physics, while the residual dynamics $g_t$ (potentially time-variant) refers to the hard-to-model part. As shown in the following image, in different systems $g_t$ could have different structures.
 
 <center>
 <table width="80%" align="center">
 <td align="center" markdown="span">
-![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/Neural_Control_1.png?raw=true)
+![wind_tunnel](https://github.com/GuanyaShi/blog/blob/master/images/blog.png?raw=true)
 </td>
 </table>        
-</center>
+</center>  
+  
+For example, in _Neural-Lander_, $f$ is the classic rigid body dynamics for a drone flying in the free space, and $f$ could be easily modeled by standard bench tests. However, $g_t=g(x_t,u_t)$ is the complex aerodynamic effect between the drone and the ground, which is nonlinear, nonstationary, and very hard to model using standard system identification approaches.
+
+In _Neural-Swarm_, the residual dynamics is more involved, because it also depends on the drone's neighbors: $g_t=g(x_t,u_t,N_1,\cdots,N_K)$, where $N_k$ is a set of the type-$k$ neighbors. More specifically, $g_t$ is the aerodynamic interaction between different types of robots in a swarm. In _Neural-Fly_, the residual part depends on the unknown wind condition $c_t$: $g_t=g(x_t,u_t,c_t)$. External wind conditions have a significant influence on the drone dynamics, as visualized in the above image (a drone flying in Caltech Real Weather Wind Tunnel).
 
 Since the nominal dynamics $f$ is highly structured and easy to model using classic approaches, there is no reason to use deep learning to model it. The high-level idea of the _Neural-Control_ Family is, we use some deep learning methods to model the residual dynamics $g_t$, and then leverage the structure in the prior physics to design a hybrid controller:
 
-$$u_t = \underbrace{\pi_n(x_t)}_{\text{nominal controller}} + \underbrace{\pi_l(x_t,\hat{g}_t)}_{\text{learned controller}},$$
+$$u_t = \underbrace{\pi_n(x_t)}_{\text{nominal controller}} + \underbrace{\pi_l(x_t,\hat{g}_t)}_{\text{learning-based controller}},$$
 
 where $\hat{g}_t$ is the estimation of $g_t$ from some machine learning method. Here, I want to point out that having prior physics is crucial with two reasons:
 
@@ -127,7 +127,7 @@ Another example to unify learning and control theory is in _Neural-Fly_, where w
 
 $$g(x_t,u_t,c_t) \approx \phi(x_t,u_t) a(c_t),$$
 
-where $\phi$ is a representation shared by all environments, and $a$ is an environment-specific linear coefficient. We learn $\phi$ using meta-learning, and adapt $a$ using adaptive control. The reason behind is that, adaptive control is super good at handling (linear) parametric uncertainty, so we use meta-learning to provide a reasonable representation to "translate" the nonparametric uncertainty to be parametric. 
+where $\phi$ is a representation shared by all environments, and $a$ is an environment-specific linear coefficient. We learn $\phi$ using meta-learning, and adapt $a$ using adaptive control. Namely, adaptive control will adapt $a_t$ in real time based on the learned representation $\phi$. The reason behind is that, adaptive control is super good at handling (linear) parametric uncertainty, so we use meta-learning to provide a reasonable representation to "translate" the nonparametric uncertainty to be parametric. 
 
 ## Encoding invariance to deep learning really helps
 
