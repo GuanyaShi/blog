@@ -65,7 +65,7 @@ However, in many control problems, it is _extremely hard_ to select a reasonable
 Finally, we are ready to answer the question posed at the beginning: is MPC a strong online learner?
 
 **Standard LQR problems with adversarial disturbance**. In this case, the dynamics is $x_{t+1}=Ax_t+Bu_t+w_t$ ($w_t$ could be adversarial) and the cost function is $x_t^\top Qx_t+u_t^\top Ru_t$. In paper [[1](https://arxiv.org/pdf/2006.07569.pdf)], we proved two key results:
-* For any LQR system, with $k$-step predictions of $w_t$, MPC's dynamic regret is $O(\lambda^kT+1)$ where $0\leq\lambda<1$ is some constant depends on the system parameters.
+* For any LQR system, with $k$-step predictions of $w_t$, MPC's dynamic regret is $O(\lambda^kT+1)$ where $0\leq\lambda<1$ is some system-dependent constant.
 * There exist some LQR systems such that the dynamic-regret-optimal policy's dynamic regret is $\Omega(\lambda^k(T-k))$.
 
 These results show the power of prediction in online control --- MPC only needs $O(\log T)$ predictions to achieve a constant dynamic regret, and the lower bound is also $\log T$! In other words, MPC is near-optimal in terms of dynamic regret. The numerical results match the theory very well. As shown in the figure below, in a trajectory tracking problem, as the number of predictions increases, the performance of MPC (in terms of its dynamic regret) improves _exponentially_.
