@@ -17,7 +17,7 @@ $$
 \end{align}
 $$
 
-where $Q(\cdot)$ is the commonly used cost function regularizing the terminal state. Having a proper $Q$ is critical for the stability and performance of MPC. Suppose the optimal solution from the above optimization problem is $u^{'}_{t,t},\cdots,u^{'}_{t+k-1,t}$. A key feature of MPC is that only the first solved action $u^{\mathrm{MPC}}_{t,t}$ is executed/used, and at the next step we need to solve another optimization problem for $u^{\mathrm{MPC}}_{t+1,t+1}$. 
+where $Q(\cdot)$ is the commonly used cost function regularizing the terminal state. Having a proper $Q$ is critical for the stability and performance of MPC. Suppose the optimal solution from the above optimization problem is $u'_{t,t},\cdots,u'_{t+k-1,t}$. A key feature of MPC is that only the first solved action $u^{\mathrm{MPC}}_{t,t}$ is executed/used, and at the next step we need to solve another optimization problem for $u^{\mathrm{MPC}}_{t+1,t+1}$. 
 
 **Remark 1**: This blog will focus on MPC problems _without constraints_. In practice there are two types of constraints used in MPC: state constraint (i.e., $x_t\in\mathcal{X}_t$, typically related to safety) and input constraint (i.e., $u_t\in\mathcal{U}_t$).
 
