@@ -1,4 +1,7 @@
-# Learning-theoretic Perspectives on MPC via Competitive Control
+---
+layout: post
+title: Learning-theoretic Perspectives on MPC via Competitive Control
+---
 
 Since the 1980s, Model Predictive Control (MPC) has been one of the most influential and popular process control methods in industries. The key idea of MPC is straightforward: with a finite look-ahead window of the future, MPC optimizes a finite-time optimal control problem at each time step, but only implements/executes the current timeslot and then optimizes again at the next time step, repeatedly. Actually, the second part "_only implements the current timeslot and reoptimizes at each time step_" is one of the reasons MPC was not that popular before the 1980s --- iteratively solving complex optimal control problems at high frequency was such a luxury task before computational power took off. 
 
