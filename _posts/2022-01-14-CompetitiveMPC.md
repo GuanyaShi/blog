@@ -10,6 +10,7 @@ Here is a trajectory tracking problem to explain how MPC works (visualized in th
 ![](https://i.imgur.com/rbLkB1O.png)
  
 It is how MPC works: at each time step, it solves the following $k$-step optimal control problem:
+
 $$
 \begin{align}
 & \min_{u_t,\cdots,u_{t+k-1}} \sum_{i=1}^{k}\left( q_{t+i}\|x_{t+i}-d_{t+i}\|^2 + \|u_{t+i-1}\|^2 \right) + Q(x_{t+k}) \\
