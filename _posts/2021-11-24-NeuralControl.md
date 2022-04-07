@@ -180,7 +180,7 @@ There are many interesting future directions. In particular, note that the afore
 
 * _Neural-Lander_ [[ICRA'19 paper](https://arxiv.org/abs/1811.08027)]
 * _Neural-Swarm_ [[T-RO paper](https://arxiv.org/abs/2012.05457)]
-* _Neural-Fly_ (under review) [[preliminary version](https://arxiv.org/pdf/2103.01932)]
+* _Neural-Fly_ (accepted by Science Robotics) [pdf coming soon]
 * _Online Meta-Adaptive Control_ [[NeurIPS'21 paper](https://arxiv.org/abs/2106.06098)]
 * _Safe Exploration_ [[L4DC'20 paper](https://arxiv.org/pdf/1906.05819)][[RA-L paper](https://arxiv.org/abs/2005.04374)]
 
